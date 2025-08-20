@@ -27,11 +27,11 @@ To convert text/scanned .pdf documents in Latex >> main_latex.py
     ```
     *(Note: A `requirements.txt` file is not yet present in this repository. It should be created based on the libraries in the `venv` directory.)*
 
-4.   ** Tesseract Settings**
+4.  **Tesseract Settings:**
       You need to install Tesseract on your PC >> https://github.com/UB-Mannheim/tesseract/wiki
       After installation, point to the file https://github.com/tesseract-ocr/tessdata/blob/main/por.traineddata in the tessdata folder where the program was installed on your PC
      
-6.   **Poppler**
+5.  **Poppler:**
       Caminho do Poppler >> https://github.com/oschwartz10612/poppler-windows/releases/
 
 
