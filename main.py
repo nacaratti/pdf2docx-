@@ -6,18 +6,6 @@ import os
 pdf_file = "entrada.pdf"
 docx_file = "saida.docx"
 
-# --- AVISO SOBRE A CONVERSÃO ---
-# A conversão de PDF para DOCX é um processo complexo. A qualidade do resultado
-# depende muito da estrutura interna do arquivo PDF.
-#
-# - PDFs baseados em texto (gerados a partir de um editor de texto) geralmente
-#   convertem melhor.
-# - PDFs baseados em imagem (escaneados) ou com layouts muito complexos
-#   (múltiplas colunas, tabelas sem bordas, muitos elementos gráficos)
-#   podem não ser convertidos com 100% de fidelidade.
-#
-# Esta biblioteca (pdf2docx) faz um ótimo trabalho na maioria dos casos, mas
-# "exatamente igual" ao original é um objetivo difícil de alcançar.
 
 def convert_pdf_to_docx(pdf_path, docx_path):
     """
