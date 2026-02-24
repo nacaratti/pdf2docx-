@@ -88,25 +88,18 @@ def process_pdf_to_docx(pdf_file, output_file="saida.docx", language="por", dpi=
     
     print("Creating Word document...")
     doc = Document()
-    
-    # Add document title
-    title = doc.add_heading('OCR Extracted Text', 0)
-    doc.add_paragraph(f"Source: {pdf_file}")
-    doc.add_paragraph("\n")
-    
+
     for i, page in enumerate(tqdm(pages, desc="Processing pages")):
         try:
             # OCR with error handling
             text = pytesseract.image_to_string(page, lang=language)
-            
+
             # Clean up text
             text = text.strip()
-            if not text:
-                text = "[No text detected on this page]"
-            
+
             # Add page content
-            page_heading = doc.add_heading(f'Page {i+1}', level=1)
-            doc.add_paragraph(text)
+            if text:
+                doc.add_paragraph(text)
             
             # Add page break except for last page
             if i < len(pages) - 1:
@@ -114,7 +107,6 @@ def process_pdf_to_docx(pdf_file, output_file="saida.docx", language="por", dpi=
                 
         except Exception as e:
             print(f"Warning: Error processing page {i+1}: {e}")
-            doc.add_paragraph(f"[Error processing page {i+1}: {e}]")
     
     try:
         doc.save(output_file)
